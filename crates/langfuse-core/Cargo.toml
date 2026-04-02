@@ -1,6 +1,6 @@
 [package]
 name = "langfuse-core"
-version = "0.1.0"
+version = "0.1.1"
 description = "Core types and API client for Langfuse"
 edition.workspace = true
 license.workspace = true

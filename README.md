@@ -120,14 +120,14 @@ async fn my_llm_call(prompt: &str) -> String {
 
 ## Examples
 
-Runnable examples live in `crates/langfuse/examples/`:
+Runnable SDK examples live in `crates/langfuse/examples/`, and the OpenAI integration example lives in `crates/langfuse-openai/examples/`:
 
 | Example | Description |
 |---------|-------------|
 | `basic_tracing.rs` | Manual spans, closures, `#[observe]` macro |
 | `prompt_management.rs` | Fetch, cache, and compile prompts |
 | `experiment.rs` | Dataset creation and experiment runner |
-| `openai_integration.rs` | Traced OpenAI chat completions |
+| `crates/langfuse-openai/examples/openai_integration.rs` | Traced OpenAI chat completions |
 
 Run an example:
 
