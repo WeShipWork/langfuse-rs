@@ -813,7 +813,7 @@ dependencies = [
 
 [[package]]
 name = "langfuse-core"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "base64",
  "bytes",
@@ -838,7 +838,7 @@ dependencies = [
 
 [[package]]
 name = "langfuse-macros"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -847,7 +847,7 @@ dependencies = [
 
 [[package]]
 name = "langfuse-openai"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "async-openai",
  "chrono",
@@ -862,7 +862,7 @@ dependencies = [
 
 [[package]]
 name = "langfuse-sdk"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "async-openai",
  "async-trait",
@@ -873,7 +873,6 @@ dependencies = [
  "futures",
  "langfuse-core",
  "langfuse-macros",
- "langfuse-openai",
  "opentelemetry",
  "opentelemetry-otlp",
  "opentelemetry_sdk",

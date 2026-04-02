@@ -1,6 +1,6 @@
 [package]
 name = "langfuse-openai"
-version = "0.1.0"
+version = "0.1.1"
 description = "OpenAI integration for the Langfuse SDK"
 edition.workspace = true
 license.workspace = true
@@ -15,8 +15,8 @@ categories = ["api-bindings"]
 exclude = [".github/", ".sisyphus/"]
 
 [dependencies]
-langfuse = { package = "langfuse-sdk", path = "../langfuse", version = "0.1.0" }
-langfuse-core = { version = "0.1.0", path = "../langfuse-core" }
+langfuse = { package = "langfuse-sdk", path = "../langfuse", version = "0.1.1" }
+langfuse-core = { version = "0.1.1", path = "../langfuse-core" }
 async-openai = { version = "0.33", features = ["chat-completion", "embedding"] }
 serde.workspace = true
 serde_json.workspace = true

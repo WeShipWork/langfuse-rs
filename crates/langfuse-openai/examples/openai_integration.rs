@@ -7,7 +7,7 @@
 //!
 //! Note: This example compiles but requires valid API keys to actually execute.
 //!
-//! Run: OPENAI_API_KEY=sk-... LANGFUSE_PUBLIC_KEY=pk-... LANGFUSE_SECRET_KEY=sk-... cargo run --example openai_integration
+//! Run: `OPENAI_API_KEY=sk-... LANGFUSE_PUBLIC_KEY=pk-... LANGFUSE_SECRET_KEY=sk-... cargo run -p langfuse-openai --example openai_integration`
 
 use async_openai::types::chat::{
     ChatCompletionRequestMessage, ChatCompletionRequestUserMessage,
@@ -20,20 +20,15 @@ use langfuse_openai::observe_openai;
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("=== OpenAI Integration Example ===\n");
 
-    // Initialize Langfuse from environment variables
     let config = LangfuseConfig::from_env()?;
     let langfuse = Langfuse::new(config)?;
     println!("✓ Langfuse initialized");
 
-    // Initialize the OpenAI client (reads OPENAI_API_KEY from env)
     let openai_client = async_openai::Client::new();
     println!("✓ OpenAI client initialized");
 
-    // Wrap the client with Langfuse tracing — every call through `traced`
-    // automatically creates a generation span in Langfuse.
     let traced = observe_openai(&openai_client);
 
-    // Build a chat completion request
     let request = CreateChatCompletionRequestArgs::default()
         .model("gpt-4o-mini")
         .messages(vec![ChatCompletionRequestMessage::User(
@@ -46,8 +41,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         )])
         .build()?;
 
-    // This call is automatically traced — model, usage, input, and output
-    // are recorded as a Langfuse generation span.
     let response = traced.create(request).await?;
 
     let content = response
@@ -64,7 +57,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         );
     }
 
-    // Flush Langfuse to ensure spans are sent
     langfuse.flush().await?;
 
     println!("\n✓ Generation span recorded in Langfuse!");

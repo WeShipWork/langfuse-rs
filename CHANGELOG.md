@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-04-02
+
+### Fixed
+
+- Moved the OpenAI integration example into the `langfuse-openai` crate so `langfuse-sdk`
+  no longer has a publish-time cycle on `langfuse-openai` as a dev-dependency.
+- Made the workspace releasable after `0.1.0` by keeping crate examples aligned with crate
+  ownership and first-release crates.io dependency resolution.
+
 ## [0.1.0] - 2026-04-01
 
 ### Added
@@ -26,5 +35,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Retry logic**: Exponential backoff retry mechanism for all HTTP requests
 - **Comprehensive configuration**: Builder pattern config with environment variable support and sensible defaults
 
-[Unreleased]: https://github.com/weshipwork/langfuse-rs/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/weshipwork/langfuse-rs/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/weshipwork/langfuse-rs/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/weshipwork/langfuse-rs/releases/tag/v0.1.0

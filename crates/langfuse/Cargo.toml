@@ -1,6 +1,6 @@
 [package]
 name = "langfuse-sdk"
-version = "0.1.0"
+version = "0.1.1"
 description = "Langfuse SDK for Rust — LLM observability, prompt management, and evaluation"
 edition.workspace = true
 license.workspace = true
@@ -18,8 +18,8 @@ exclude = [".github/", ".sisyphus/", "src/tracing/AGENTS.md"]
 name = "langfuse"
 
 [dependencies]
-langfuse-core = { version = "0.1.0", path = "../langfuse-core" }
-langfuse-macros = { version = "0.1.0", path = "../langfuse-macros" }
+langfuse-core = { version = "0.1.1", path = "../langfuse-core" }
+langfuse-macros = { version = "0.1.1", path = "../langfuse-macros" }
 serde.workspace = true
 serde_json.workspace = true
 reqwest.workspace = true
@@ -39,5 +39,4 @@ backoff.workspace = true
 pin-project-lite.workspace = true
 
 [dev-dependencies]
-langfuse-openai = { version = "0.1.0", path = "../langfuse-openai" }
 async-openai = { version = "0.33", features = ["chat-completion", "embedding"] }
