@@ -1,0 +1,43 @@
+[package]
+name = "langfuse-sdk"
+version = "0.1.0"
+description = "Langfuse SDK for Rust — LLM observability, prompt management, and evaluation"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+homepage.workspace = true
+documentation = "https://docs.rs/langfuse-sdk"
+readme = "../../README.md"
+keywords = ["langfuse", "tracing", "llm", "observability", "prompts"]
+categories = ["api-bindings", "development-tools::debugging"]
+exclude = [".github/", ".sisyphus/", "src/tracing/AGENTS.md"]
+
+[lib]
+name = "langfuse"
+
+[dependencies]
+langfuse-core = { version = "0.1.0", path = "../langfuse-core" }
+langfuse-macros = { version = "0.1.0", path = "../langfuse-macros" }
+serde.workspace = true
+serde_json.workspace = true
+reqwest.workspace = true
+thiserror.workspace = true
+chrono.workspace = true
+uuid.workspace = true
+tokio.workspace = true
+async-trait.workspace = true
+opentelemetry.workspace = true
+opentelemetry_sdk.workspace = true
+opentelemetry-otlp.workspace = true
+dashmap.workspace = true
+tracing.workspace = true
+base64 = "0.22"
+futures.workspace = true
+backoff.workspace = true
+pin-project-lite.workspace = true
+
+[dev-dependencies]
+langfuse-openai = { version = "0.1.0", path = "../langfuse-openai" }
+async-openai = { version = "0.33", features = ["chat-completion", "embedding"] }

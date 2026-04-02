@@ -1,0 +1,39 @@
+[package]
+name = "langfuse-core"
+version = "0.1.0"
+description = "Core types and API client for Langfuse"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+homepage.workspace = true
+documentation = "https://docs.rs/langfuse-core"
+readme = "../../README.md"
+keywords = ["langfuse", "observability", "llm", "api-client", "types"]
+categories = ["api-bindings", "development-tools"]
+exclude = [".github/", ".sisyphus/"]
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+reqwest.workspace = true
+thiserror.workspace = true
+chrono.workspace = true
+uuid.workspace = true
+url.workspace = true
+tracing.workspace = true
+base64 = "0.22"
+progenitor-client = "0.9"
+futures-core = "0.3"
+serde_urlencoded = "0.7"
+bytes = "1"
+opentelemetry_sdk.workspace = true
+
+[build-dependencies]
+progenitor = "0.9"
+serde_json = "1"
+serde_yaml = "0.9"
+syn = { version = "2", features = ["full"] }
+prettyplease = "0.2"
+openapiv3 = "2"

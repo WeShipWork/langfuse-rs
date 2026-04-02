@@ -1,0 +1,71 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/langfuse-core",
+    "crates/langfuse",
+    "crates/langfuse-macros",
+    "crates/langfuse-openai",
+]
+
+[workspace.package]
+edition = "2024"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/weshipwork/langfuse-rs"
+rust-version = "1.93.1"
+authors = ["Brandon Martin <brandontm@gmail.com>"]
+homepage = "https://github.com/weshipwork/langfuse-rs"
+
+[workspace.dependencies]
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# HTTP
+reqwest = { version = "0.12", features = ["json", "rustls-tls"], default-features = false }
+
+# Error handling
+thiserror = "2"
+
+# Date/time
+chrono = { version = "0.4", features = ["serde"] }
+
+# UUID
+uuid = { version = "1", features = ["v4", "serde"] }
+
+# URL
+url = "2"
+
+# Logging (SDK internals)
+tracing = "0.1"
+
+# Async
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "time", "sync"] }
+async-trait = "0.1"
+
+# OpenTelemetry
+opentelemetry = "0.31"
+opentelemetry_sdk = { version = "0.31", features = ["trace"] }
+opentelemetry-otlp = { version = "0.31", features = ["http-proto", "reqwest-rustls"] }
+
+# Concurrency
+dashmap = "6"
+
+# Proc macros
+syn = { version = "2", features = ["full"] }
+quote = "1"
+proc-macro2 = "1"
+futures = "0.3"
+pin-project-lite = "0.2"
+
+# Retry
+backoff = { version = "0.4", features = ["tokio"] }
+
+[profile.dev]
+debug = "line-tables-only"
+
+[profile.dev.package."*"]
+debug = false
+
+[profile.debugging]
+inherits = "dev"
+debug = true

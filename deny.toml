@@ -1,0 +1,47 @@
+[advisories]
+unmaintained = "none"
+
+[licenses]
+# List of explicitly allowed licenses
+allow = [
+    "MIT",
+    "Apache-2.0",
+    "Apache-2.0 WITH LLVM-exception",
+    "BSD-3-Clause",
+    "CDLA-Permissive-2.0",
+    "MPL-2.0",
+    "Unicode-3.0",
+    "Unicode-DFS-2016",
+    "BSL-1.0",
+    "ISC",
+    "OpenSSL",
+    "Zlib",
+]
+# The confidence threshold for detecting a license from license text.
+confidence-threshold = 0.8
+
+[bans]
+# Lint level for when multiple versions of the same crate are detected
+multiple-versions = "warn"
+# The graph highlighting used when creating dotgraphs
+highlight = "all"
+# List of explicitly allowed duplicate crates
+allow = []
+# List of explicitly disallowed crates
+deny = []
+# Certain crates/versions that will be skipped when doing duplicate detection
+skip = []
+# Similarly named crates that are allowed to coexist
+skip-tree = []
+# Allow wildcard dependencies
+wildcards = "allow"
+
+[sources]
+# Lint level for what to happen when a crate from an unknown registry is detected
+unknown-registry = "deny"
+# Lint level for what to happen when a crate from an unknown git repository is detected
+unknown-git = "deny"
+# List of allowed crate registries
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
+# List of allowed Git repositories
+allow-git = []

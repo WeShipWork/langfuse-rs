@@ -1,0 +1,23 @@
+[package]
+name = "langfuse-macros"
+version = "0.1.0"
+description = "Proc macros for the Langfuse SDK (#[observe])"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+homepage.workspace = true
+documentation = "https://docs.rs/langfuse-macros"
+readme = "../../README.md"
+keywords = ["langfuse", "macros", "proc-macro", "tracing", "observe"]
+categories = ["development-tools::procedural-macro-helpers"]
+exclude = [".github/", ".sisyphus/"]
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn.workspace = true
+quote.workspace = true
+proc-macro2.workspace = true
