@@ -14,6 +14,10 @@ def main() -> int:
 
     version = sys.argv[1].removeprefix("v")
     changelog_path = Path("CHANGELOG.md")
+    if not changelog_path.exists():
+        print(f"changelog not found: {changelog_path}", file=sys.stderr)
+        return 1
+
     content = changelog_path.read_text(encoding="utf-8")
 
     heading_pattern = re.compile(
@@ -27,7 +31,11 @@ def main() -> int:
 
     start = start_match.end()
     next_heading_match = re.search(r"^## \[", content[start:], re.MULTILINE)
-    reference_block_match = re.search(r"^\[[^\]]+\]:\s+", content[start:], re.MULTILINE)
+    reference_block_match = re.search(
+        r"^\[[^\]]+\]:\s+https?://",
+        content[start:],
+        re.MULTILINE,
+    )
 
     end_candidates = [len(content)]
     if next_heading_match:
